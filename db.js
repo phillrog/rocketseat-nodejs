@@ -5,10 +5,11 @@ const {
     MONGO_PORT,
     MONGO_DB,
     MONGO_USERNAME,
-    MONGO_PASSWORD
+    MONGO_PASSWORD,
+    MONGODB_URI
 } = process.env;
 
-const url = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${MONGO_PORT}/${MONGO_DB}`
+const url = MONGODB_URI || `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${MONGO_PORT}/${MONGO_DB}`;
 
 const options = {
     useNewUrlParser: true,
