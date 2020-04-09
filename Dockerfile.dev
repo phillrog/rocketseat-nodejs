@@ -13,4 +13,6 @@ RUN yarn
 
 EXPOSE 3001
 
-CMD ["npm", "run", "${NODE_ENV}"]
+ENV NODE_ENV=development
+
+CMD ["npm", "run", "dev"]

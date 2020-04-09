@@ -2,10 +2,11 @@
   "name": "rocketseat-nodejs",
   "version": "1.0.0",
   "description": "Curso de nodejs da Rocketseat",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "prod": "node server.js"
   },
   "repository": {
     "type": "git",

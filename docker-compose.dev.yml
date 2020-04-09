@@ -2,9 +2,10 @@ version: '3'
 
 services:
     nodejs:
+        image: phillrog/node-api:dev
         build:
             context: .
-            dockerfile: Dockerfile
+            dockerfile: Dockerfile.dev
         container_name: nodejs
         restart: always
         env_file: .env
@@ -14,7 +15,7 @@ services:
             - MONGO_HOSTNAME=$MONGO_HOSTNAME
             - MONGO_PORT=$MONGO_PORT
             - MONGO_DB=$MONGO_DB
-            - NODE_ENV=prod
+            - NODE_ENV=development
         ports:
             - "3001:3001"
         networks:
@@ -31,6 +32,7 @@ services:
             MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
         volumes:  
             - dbdata:/data/mongodb   
+            - ./db.sh:/docker-entrypoint-initdb.d/db.sh
         networks:
             - app-network  
         ports:
